@@ -31,6 +31,8 @@
         <div class="col-lg-4 col-sm-4">
           <div class="right-icons">
             <ul>
+              <li id="username"></li>
+              <li><a href="SignUp.html" target="_blank">Đăng kí</a></li>
               <li><a href="https://www.facebook.com/mung.nguyen.754" target="_blank"><i class="fa fa-facebook"></i></a>
               </li>
               <li><a>
@@ -738,7 +740,7 @@
               </li>
               <li>
                 <h6>Lưu ý</h6>
-                <span>các bạn mua hàng có thể chat vào ô messenger</span>
+                <span>các bạn mua hàng có thể chat vào ô message</span>
               </li>
             </ul>
           </div>
@@ -748,9 +750,23 @@
     <div class="footer">
       <p>Copyright © 2022.
         <br>Thiết kế: <a href="https://www.facebook.com/profile.php?id=100051136733866" target="_blank"
-          title="free css templates">Phạm Vũ</a>
+          title="vu">Phạm Vũ</a>
       </p>
     </div>
+    <script>
+    if(localStorage.getItem("userHientai") ){
+      let username=localStorage.getItem("userHientai")
+      document.getElementById('username').innerHTML +=`<a>Xin chào ${username}  </a>`
+      document.getElementById('username').innerHTML +='<a onclick ="logout()" >   Log out</a>'
+  }else{
+     
+      document.getElementById('username').innerHTML +='<a href="SignIn.html">Đăng nhập</a>'
+  }
+  function logout(){
+      localStorage.removeItem('userHientai');
+      window.location.reload();
+  }
+  </script>
   </section>
 
   <!-- Scripts -->
